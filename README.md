@@ -12,3 +12,19 @@ The client requires an effective tool to determine the medical condition of a ma
 # Hypothesis and Validation
 
 Specialists dedicated to OCT analysis are capable to distinguish certain anomalities in non-healthy macula images when compare to healthy ones. Based on this, It is plaussible to assume that patterns might emerge in OCT images that allow for automatic detection of macular anomalities using the appropriate techniques.
+
+# Mapping Bussiness Requirements to Data Visualisation and ML Tasks
+
+* **Business Requirement 1**: Data Visualisation
+
+    - Display mean and standard deviation of images for maculas conditions: Normal, CNV, DME, DRUNSEN
+
+    - Display difference between combination pairs of different macular conditions.
+
+    - Display a montage with sample images for all conditions
+
+* **Business Requirement 2**: Classification
+
+    - Build a multiclass classifier to predict macular condition (Normal, CNV, DME or DRUNSEN) from an OCT image.
+
+# ML Business Case
