@@ -28,3 +28,9 @@ Specialists dedicated to OCT analysis are capable to distinguish certain anomali
     - Build a multiclass classifier to predict macular condition (Normal, CNV, DME or DRUNSEN) from an OCT image.
 
 # ML Business Case
+
+* We want to build a ML model to analyse OCT images and predict one of the following macular conditions: Normal, CNV, DME or DRUNSEN. The supervised model is a multiclass classification model.
+
+* The ideal outcome is to provide the means to interpret OCT macular images with high reliability.
+
+* The model is expected to have an accuracy above 70%.
