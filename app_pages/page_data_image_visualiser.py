@@ -24,14 +24,14 @@ def image_collage_per_label(label, nrows, ncols, img_height, img_width):
     fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(img_height, img_width))
     count = 0
     for image_name in images_list:
-        img = imread(split_paths['train']+ '/' + label + '/' + image_name)
+        img = imread('inputs/OCTdata/val/' + label + '/' + image_name)
         axes[position_list[count][0], position_list[count][1]].imshow(img)
         axes[position_list[count][0], position_list[count][1]].set_xticks([])
         axes[position_list[count][0], position_list[count][1]].set_yticks([])
         count += 1
     
     plt.tight_layout()
-    plt.show()
+    st.pyplot(fig=fig)
 
 
 def data_image_visualiser_body():
@@ -72,9 +72,10 @@ def data_image_visualiser_body():
             options = labels,
             index=0
         )
+        st.info('Images might take few second to be displayed')
         if st.button('Display montage'):
             image_collage_per_label(label=label_to_display,
-            nrows=1,
+            nrows=2,
             ncols=3,
             img_height=10,
             img_width=10)
