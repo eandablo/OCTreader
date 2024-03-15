@@ -37,3 +37,15 @@ def data_image_visualiser_body():
                 image_path = f'{output_path}/{conditions[i]}_{conditions[j]}_diff.png'
                 img = plt.imread(image_path)
                 st.image(img, caption=f'Average image difference between {conditions[i]} and {conditions[j]}')
+
+    if st.checkbox("OCT Images motage \n"):
+        st.write('Click on **Display montage** to refresh images')
+        data_path = 'inputs/OCTdata/val'
+        labels = os.listdir(data_path)
+        label_to_display = st.selectbox(
+            label='Select a label to display',
+            options = labels,
+            index=0
+        )
+        if st.button('Display montage'):
+            st.write('displayinsg')
