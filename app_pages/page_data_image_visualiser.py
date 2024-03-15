@@ -9,6 +9,31 @@ from matplotlib.image import imread
 import itertools
 import random
 
+
+def image_collage_per_label(label, nrows, ncols, img_height, img_width):
+    '''
+    Function creates a collage of images from the train folder
+    using for a specific label
+    '''
+    print(f'{label} Images')
+    n_images = nrows * ncols
+    images_label = os.listdir('inputs/OCTdata/val/' + label)
+    random.shuffle(images_label)
+    images_list = images_label[0: n_images]
+    position_list = list(itertools.product(range(nrows), range(ncols)))
+    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(img_height, img_width))
+    count = 0
+    for image_name in images_list:
+        img = imread(split_paths['train']+ '/' + label + '/' + image_name)
+        axes[position_list[count][0], position_list[count][1]].imshow(img)
+        axes[position_list[count][0], position_list[count][1]].set_xticks([])
+        axes[position_list[count][0], position_list[count][1]].set_yticks([])
+        count += 1
+    
+    plt.tight_layout()
+    plt.show()
+
+
 def data_image_visualiser_body():
     st.write('## OCT Image Visualiser')
     st.info('### Business Requirement 1  \n'
@@ -48,4 +73,8 @@ def data_image_visualiser_body():
             index=0
         )
         if st.button('Display montage'):
-            st.write('displayinsg')
+            image_collage_per_label(label=label_to_display,
+            nrows=1,
+            ncols=3,
+            img_height=10,
+            img_width=10)
