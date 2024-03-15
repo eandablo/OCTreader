@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Generating the multiple pages with object oriented aproach
-class Multipage:
+class MultiPage:
 
     def __init__(self, app_name) -> None:
         self.pages = []
