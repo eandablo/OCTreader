@@ -1,3 +1,4 @@
+
 # Dataset Content
 
 The database containes a total of 84495 Optical coherence tomography (OCT) retinal images organised in three folders: train, val and test. In each folder, images are split in four different sets pertaining to three different abnormal conditions, namely, CNV (Choroidal Neovascularization), DME (Diabetic macular edema), DRUNSEN, and healthy maculas (NORMAL).
@@ -43,7 +44,7 @@ Specialists dedicated to OCT analysis are capable to distinguish certain anomali
 
 # Dashboard Design
 
-Page 1: Brief Project Summary
+## Page 1: Brief Project Summary
 
 * Introduction
 
@@ -62,6 +63,45 @@ Page 1: Brief Project Summary
 
     - The database containes a total of 84495 Optical coherence tomography (OCT) retinal images organised in three folders: train, val and test. In each folder, images are split in four different sets pertaining to three different abnormal conditions, namely, CNV (Choroidal Neovascularization), DME (Diabetic macular edema), DRUNSEN, and healthy maculas (NORMAL). The training data is accessible in [Kaggle dataset directory](https://www.kaggle.com/datasets/paultimothymooney/kermany2018/data) with non-commercial license [CC BY-NC-SA 4.0 DEED](https://creativecommons.org/licenses/by-nc-sa/4.0/). In agreement to kaggle the dataset is a product of a multi-institutional effort and involved cohorts of adult patients wich OCT retina scans were taken between July 1, 2013 and March 1, 2017 in one of the following institutions: the Shiley Eye Institute of the University of California San Diego, the California Retinal Research Foundation, Medical Center Ophthalmology Associates, the Shanghai First People’s Hospital, and Beijing Tongren Eye Center.
 
+* Business requirements
+
+1. The client requires to understand visual differences between the different macular conditions and healthy maculas.
+
+2. The client requires an effective tool to determine the medical condition of a macula based on a OCT scan. The client needs to distinguish amongst CNV, DME, DRUNSEN, and healthy maculas.
+
+## Page 2: OCT images visualiser
+
+This page is designed to answer bussiness requirement 1
+
+    - Checkbox 1: Image average (aritmethic mean) and variablility (standard deviation)
+
+    - Checkbox 2: Average pair difference between images for different macular conditions.
+
+    - Checkbox 3: Image Montage
+
+## Page 3: OCT image inspector
+
+This page is designed to answer bussiness requirement 2 and must contain:
+
+- Link to download OCT images for live prediction.
+
+- Widget to upload image file for live prediction.
+
+- Table with model prediction and image name.
+
+- Button to download prediction results.
+
+## Page 4: Project Hypothesis and Validation
+
+- Display project hypothesis separately together with validation results.
+
+## Page 5: Model Performance Metrics
+
+- Plot of dataset distribution.
+
+- Plot of model training history.
+
+- Show model evaluation results.
 
 # References
 
