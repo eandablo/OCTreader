@@ -1,3 +1,4 @@
-inputs
+inputs/OCTdata/test
+inputs/OCTdata/train
 kaggle.json
 __pycache__/
