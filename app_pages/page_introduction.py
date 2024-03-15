@@ -1,5 +1,4 @@
 import streamlit as st
-import matplotlib.pyplot as plt
 
 
 def page_introduction_body():
@@ -36,7 +35,7 @@ def page_introduction_body():
         f'the Shanghai First People’s Hospital, and Beijing Tongren Eye Center.  \n'
     )
     st.write(
-        f'Additional info can be found in the [project readme file](https://github.com/eandablo/OCTreader/blob/main/README.md)'
+        f'Additional info and references can be found in the [project readme file](https://github.com/eandablo/OCTreader/blob/main/README.md)'
     )
     st.success(
         f"### Project Requirements:  \n"
