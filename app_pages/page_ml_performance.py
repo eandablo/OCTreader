@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.image import imread
-# from src.machine_learning.evaluate_clf import load_test_evaluation
+import joblib
 
 
 def page_ml_performance_metrics():
@@ -34,6 +34,12 @@ def page_ml_performance_metrics():
     st.write("---")
 
 
+    st.write('### Loss and Occuracy of Train Dataset  \n')
+    evaluation = joblib.load(f"outputs/{version}/evaluation.pkl")
+    evaluation = ['%.2f' % elem for elem in evaluation]
+    st.dataframe(pd.DataFrame(data=evaluation, columns=['Values',], index=['Loss', 'Accuracy']))
+    st.write("---")
+
     st.write(
         f"### Model Performance  \n"
         f"The figures below show the confussion matrices for all datasets. "
@@ -48,3 +54,4 @@ def page_ml_performance_metrics():
     with col3:
         confussion_mat_test = plt.imread(f"outputs/{version}/confussion_matrix_train.png")
         st.image(confussion_mat_test, caption='Confussion Matrix for Test Set')
+
