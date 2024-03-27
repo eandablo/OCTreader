@@ -1,4 +1,5 @@
 inputs/OCTdata/test
 inputs/OCTdata/train
 kaggle.json
+*.ipynb
 __pycache__/
