@@ -18,5 +18,13 @@ def download_dataframe_as_csv(df):
     return href
 
 
-def load_pkl_file(file_path):
-    return joblib.load(filename=file_path)
+def write_classification_report(report_dict):
+    labels = list(report_dict.keys())
+    column_values = ['precision', 'recall', 'support', 'f1-score']
+    labels = labels[:4]
+    df = pd.DataFrame(columns=column_values)
+    for label in labels:
+        temp_dict = report_dict[label]
+        df2 = pd.DataFrame(data=temp_dict, index=[label])
+        df = df.append(df2.round(2))
+    return df

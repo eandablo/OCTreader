@@ -3,18 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.image import imread
 import joblib
-
-
-def write_classification_report(report_dict):
-    labels = list(report_dict.keys())
-    column_values = ['precision', 'recall', 'support', 'f1-score']
-    labels = labels[:4]
-    df = pd.DataFrame(columns=column_values)
-    for label in labels:
-        temp_dict = report_dict[label]
-        df2 = pd.DataFrame(data=temp_dict, index=[label])
-        df = df.append(df2.round(2))
-    return df
+from src.data_manager import write_classification_report
 
 
 def page_ml_performance_metrics():
@@ -73,11 +62,14 @@ def page_ml_performance_metrics():
     report_train = joblib.load(f'outputs/{version}/class_report_train.pkl')
     report_val = joblib.load(f'outputs/{version}/class_report_val.pkl')
     report_test = joblib.load(f'outputs/{version}/class_report_test.pkl')
-    st.write('')
+    st.write('Train Dataset')
     df = write_classification_report(report_train)
-    st.write(df)
+    st.write(df.filter(items=['precision', 'f1-score']))
+    st.write('---')
+    st.write('Validation Dataset')
     df = write_classification_report(report_val)
-    st.write(df)
+    st.write(df.filter(items=['precision', 'f1-score']))
+    st.write('---')
+    st.write('Test Dataset')
     df = write_classification_report(report_test)
-    st.write(df)
-
+    st.write(df.filter(items=['precision', 'f1-score']))
